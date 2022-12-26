@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
-from settings import maill, password
+from settings import maill, password, content_title, content_desc, tec_date
 
 driver = webdriver.Chrome()
 chrome_options = Options()
@@ -76,11 +76,44 @@ try:
     # Кликаем по ссылке "Добавить новость"
     url_add_news.click()
 
+    # Подтверждаем вывод формы ввода news_carousel_header через явное ожидание...
+    # news_carousel_header = WebDriverWait(driver, 3).until(EC.element_to_be_clickable((By.XPATH, "")))
+
+    # Отчищаем форму ввода news_carousel_header
+    # news_carousel_header.clear()
+
+    # Вводим Заголовок статьи
+    # news_carousel_header.send_keys(content_title)
+
+    # Подтверждаем вывод формы ввода news_carousel_desc через явное ожидание...
+    # news_carousel_desc = WebDriverWait(driver, 3).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='_api_eip_edit_EdudepPost_short']")))
+
+    # Отчищаем форму ввода news_carousel_desc
+    # news_carousel_desc.clear()
+
+    # Вводим Краткое описание статьи
+    # news_carousel_desc.send_keys(content_desc)
+
+    # Подтверждаем кликабельность url Сохранить через явное ожидание...
+    # url_save_news = WebDriverWait(driver, 3).until(EC.element_to_be_clickable((By.XPATH, "//a[text()='Сохранить']")))
+
+    # Кликаем по ссылке "Сохранить"
+    # url_save_news.click()
+
+    # Подтверждаем кликабельность url Продолжить чтение через явное ожидание...
+    # url_redactor_news = WebDriverWait(driver, 3).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='3147820']/article/a")))
+
+    # Кликаем по ссылке "Продолжить чтение"
+    # url_redactor_news.click()
+
+    # Засыпаем на 3 секунды
+    time.sleep(3)
 
 
 finally:
-    driver.close()  # Прекращаем работу драйвера...
-    print("Тест пройден успешно!!!")  # выводим сообщение в консоль...
+    driver.close()                       # Прекращаем работу драйвера...
+    print("Тест пройден успешно!!!")     # выводим сообщение в консоль...
+    print(tec_date)                      # Выводим текущую дату
     
 
 
