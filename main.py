@@ -76,11 +76,21 @@ try:
     # Кликаем по ссылке "Добавить новость"
     url_add_news.click()
 
-    # Подтверждаем вывод формы ввода news_carousel_header через явное ожидание...
-    # news_carousel_header = WebDriverWait(driver, 3).until(EC.element_to_be_clickable((By.XPATH, "")))
+    # Объявляем функцию обработки текущий даты для размещения новостей....
+
+    def is_price_correct(driver, tec_date):
+        price_locator = (By.XPATH, '//input[@value="29.12.2022"] and contains(@input, "'+tec_date+'")]')
+
+        return is_price_correct(driver, tec_date)
+
+
+
+
+
 
     # Отчищаем форму ввода news_carousel_header
     # news_carousel_header.clear()
+
 
     # Вводим Заголовок статьи
     # news_carousel_header.send_keys(content_title)
